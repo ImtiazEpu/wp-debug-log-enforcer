@@ -14,7 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 require __DIR__ . '/vendor/autoload.php';
 
 use WPDebugLogEnforcer\DebugLogEnforcer;
+use WPDebugLogEnforcer\LogHelper;
 use WPDebugLogEnforcer\MailLogger;
+
+/**
+ * Global helper function for convenience.
+ * This is loaded on every page because the main plugin file is always executed.
+ */
+if ( ! function_exists( 'write_log' ) ) {
+	function write_log( $log ): void {
+		LogHelper::write( $log );
+	}
+}
 
 // Initialize core classes
 new DebugLogEnforcer();

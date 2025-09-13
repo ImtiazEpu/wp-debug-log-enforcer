@@ -12,8 +12,8 @@ class DebugLogEnforcer {
 		$this->log_file = WP_CONTENT_DIR . '/debug.log';
 
 		// Try to enforce logging
-		@ini_set( 'log_errors', 'On' );
-		@ini_set( 'error_log', $this->log_file );
+		@ini_set( 'log_errors', 'On' );//phpcs:ignore
+		@ini_set( 'error_log', $this->log_file );//phpcs:ignore
 
 		// Capture shutdown fatal errors
 		add_action( 'shutdown', array( $this, 'log_last_error' ) );
@@ -24,11 +24,11 @@ class DebugLogEnforcer {
 
 	public function log_last_error(): void {
 		$error = error_get_last();
-		if ( $error !== null ) {
+		if ( null !== $error ) {
 			LogHelper::write(
 				sprintf(
 					'[%s] %s: %s in %s on line %d',
-					date( 'Y-m-d H:i:s' ),
+					date( 'Y-m-d H:i:s' ),//phpcs:ignore
 					$this->map_error_type( $error['type'] ),
 					$error['message'],
 					$error['file'],
@@ -42,7 +42,7 @@ class DebugLogEnforcer {
 		LogHelper::write(
 			sprintf(
 				'[%s] WP Error: %s in %s on line %d',
-				date( 'Y-m-d H:i:s' ),
+				date( 'Y-m-d H:i:s' ),//phpcs:ignore
 				$error_string,
 				$filename,
 				$line
