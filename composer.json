@@ -1,0 +1,18 @@
+{
+  "name": "imtiazepu/wp-debug-log-enforcer",
+  "description": "Ensures all PHP errors, WordPress errors, and mail failures are logged into wp-content/debug.log",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "version": "1.0.1",
+  "autoload": {
+    "psr-4": {
+      "WPDebugLogEnforcer\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Imtiaz Epu",
+      "email": "imtiazepu@programmer.net"
+    }
+  ]
+}
