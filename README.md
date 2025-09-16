@@ -106,7 +106,7 @@ This plugin uses PSR-4 autoloading.
 
 Run after changes:
 
-```JSON
+```text
 composer dump-autoload
 ```
 ⸻
